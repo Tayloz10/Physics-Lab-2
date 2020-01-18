@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[11]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[15]:
+
+
+
+
+
+# In[3]:
+
+
+import numpy as np
+
+def rule3(dA,dB):
+    dQ = np.sqrt(dA**2+dB**2)
+    return dQ
+def rule4(dA,A,m,dB,B,n,dC,C,p,Q):
+    dQ = Q*np.sqrt(((m*dA/A)**2)+((n*dB/B)**2)+((p*dC/C)**2))
+    return dQ
+Ti = 23.4
+Tf = 92.5
+errTi = .3
+errTf = .1
+DeltaT = Tf-Ti
+errT = rule3(errTi,errTf)
+DeltaL = .00125
+L = 1.05
+errDL = .00001
+errL = .001
+alpha = DeltaL/(L*DeltaT)
+errAlpha = rule4(errL,L,1,errDL,DeltaL,1,errT,DeltaT,1,alpha)
+print ("Alpha is",alpha,"plus or minus",errAlpha)
+
+
+# In[ ]:
+
+
+
+
